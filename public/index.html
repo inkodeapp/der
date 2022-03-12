@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Generador DER</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Diagrama Entidad-Relacion</h1>
+      <label for="nombredb"></label>
+      <input
+        type="text"
+        name="nombredb"
+        id="nombredb"
+        class="formulario"
+        placeholder="Nombre del Diagrama"
+        value="Comercios"
+        required
+      />
+      <label for="nombre"></label>
+      <input
+        type="number"
+        name="nombre"
+        id="cantidadTablas"
+        class="formulario"
+        placeholder="Cantidad de tablas"
+        value="4"
+        required
+      />   
+      <div id="btniniciar">Generar Modelo</div>
+ </div>
+ <div class="container">
+      <div id="containerDER"></div>
+      <div id="btnGuardar">Guardar Cambios</div>
+      <div id="btnBorrar">Borrar Diagrama</div>
+</div>
+    <script src="index.js"></script>
+  </body>
+</html>
