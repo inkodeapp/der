@@ -4,8 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Free Web tutorials" />
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript,SQL,MYSQL,MSSQL" />
+    <meta name="author" content="Johan Alvarado" />
+
+
+
+
+
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="style.css" />
+
     <title>Generador DER</title>
+    <script src=
+    "https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js">
+      </script>
   </head>
   <body>
     <div class="container">
@@ -29,14 +43,48 @@
         placeholder="Cantidad de tablas"
         value="4"
         required
-      />   
+      />
       <div id="btniniciar">Generar Modelo</div>
- </div>
- <div class="container">
+    </div>
+    <div class="container">
       <div id="containerDER"></div>
-      <div id="btnGuardar">Guardar Cambios</div>
+      <div id="btnGuardar" >Guardar Cambios</div>
       <div id="btnBorrar">Borrar Diagrama</div>
-</div>
+
+    </div>
+    <div id="output"></div>
     <script src="index.js"></script>
+   <!-- <script type="text/javascript">
+        <button onclick="takeshot()">
+        Take Screenshot
+    </button>
+      // Define the function 
+      // to screenshot the div
+      function takeshot() {
+          let div =
+              document.getElementById('containerDER');
+
+          // Use the html2canvas
+          // function to take a screenshot
+          // and append it
+          // to the output div
+          html2canvas(div).then(
+              function (canvas) {
+                  document
+                  .getElementById('output')
+                  .appendChild(canvas);
+              })
+              let elemento=document.getElementById('output');
+              html2canvas(domElement,{
+                onrendered:function(canvas){
+                  var context = canvas.getContext('2d');
+                  var link = document.createElement("canvas");
+                  link.href=canvas.toDataURL("image/png");
+                  link.download = "screenshot.png";
+                  link.click();
+                }
+              })
+      }
+  </script>-->
   </body>
 </html>

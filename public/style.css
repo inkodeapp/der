@@ -107,7 +107,7 @@ h2{text-align: center;}
 .contenedorTablas{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+
   align-items: center;
 }
 
@@ -150,7 +150,7 @@ h2{text-align: center;}
   width:30px;
   height: 0px;
   background-color: black;
-  margin-top: 39px;
+  margin-top: 35px;
 }
 
 .separadorVertical{

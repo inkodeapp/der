@@ -6,11 +6,22 @@ let cantidadTablas = document.getElementById("cantidadTablas");
 let iniciar = window.document.getElementById("btniniciar");
 let btnGuardar = window.document.querySelector("#btnGuardar")!;
 
+
 if (localStorage.getItem("diagrama")) {
-  containerDER.innerHTML = localStorage.getItem("diagrama") || "";
+  let diagrama = JSON.parse(localStorage.getItem("diagrama")|| "");
+  console.log(diagrama);
+
+
+
+
+
+
+
+
+/*
   container.setAttribute("style", "display:none");
   btnBorrar.setAttribute("style", "display:flex");
-  btnGuardar.setAttribute("style", "display:flex");
+  btnGuardar.setAttribute("style", "display:flex");*/
 }
 
 btnBorrar?.addEventListener("click", () => {
@@ -20,16 +31,31 @@ btnBorrar?.addEventListener("click", () => {
 });
 
 btnGuardar?.addEventListener("click", () => {
+  let diagramatotal: Array<String> = [];
+
+  console.clear();
   for (let i = 0; i < 20; i++) {
     let elemento = document.getElementById(`tabla${i}`);
     if (elemento && (elemento as HTMLInputElement).value != "") {
-      console.log(`tabla${i}:` + (elemento as HTMLInputElement).value);
+      diagramatotal.push(`tabla${i}:` + (elemento as HTMLInputElement).value);
+
+      for (let i = 0; i < 100; i++) {
+        let columna = document.getElementById(`columna${i}`);
+        if (columna && (columna as HTMLInputElement).value != "") {
+          diagramatotal.push(
+            `columna${i}:` + (columna as HTMLInputElement).value
+          );
+        }
+      }
     }
     let accion = document.getElementById(`accion${i}`);
     if (accion && (accion as HTMLInputElement).value != "") {
-      console.log(`accion${i}:` + (accion as HTMLInputElement).value);
+      diagramatotal.push(`accion${i}:` + (accion as HTMLInputElement).value);
     }
   }
+
+  //console.log(diagramatotal);
+  localStorage.setItem("diagrama", JSON.stringify(diagramatotal));
 });
 
 if (iniciar != null) {
@@ -93,8 +119,13 @@ if (iniciar != null) {
               `contenedorObjetos${id.substring(id.length - 1, id.length)}`
             )!;
             let numero: number = parseInt(id.replace("agregarColumna", ""));
+
             let columna = document.createElement("input");
             columna.classList.add("objeto");
+            columna.setAttribute(
+              "id",
+              `columna${numero}` + `${contenedorObjetos.childNodes.length + 1}`
+            );
             columna.setAttribute(
               "placeholder",
               `Columna ${contenedorObjetos.childNodes.length + 1}`
